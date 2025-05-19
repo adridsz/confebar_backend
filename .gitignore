@@ -1,0 +1,48 @@
+# Composer
+/vendor/
+composer.phar
+
+# Environment files
+.env
+.env.backup
+.env.testing
+
+# Archivos del sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Editors/IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+.komodotools/
+*.code-workspace
+.phpunit.result.cache
+
+# Logs y archivos generados
+/logs/
+*.log
+/cache/
+/temp/
+npm-debug.log
+yarn-error.log
+
+# Archivos de configuración específicos para desarrollo local
+phpdoc.xml
+phpunit.xml
+phpcs.xml
+phpcs.xml.dist
+
+# Directorios específicos de aplicación que contienen datos de usuario
+/node_modules/
+/public/hot
+/public/storage
+/storage/*.key
+
+# Archivos SQL de respaldo
+*.sql
+*.sqlite
+*.db
