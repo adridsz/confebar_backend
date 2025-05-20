@@ -14,6 +14,9 @@ $app->group('/api', function ($app) use ($checkRole) {
     // Tables management - all authenticated users
     $app->get('/tables', 'App\Controllers\TableController:getAll');
     $app->get('/tables/{id}', 'App\Controllers\TableController:getOne');
+    $app->post('/tables/{id}/order', 'App\Controllers\OrderController:create');
+    $app->put('/tables/{id}/order/{orderId}', 'App\Controllers\OrderController:update');
+    $app->post('/tables/{id}/order/{orderId}/pay', 'App\Controllers\OrderController:pay');
 
     // Añadir estas dos rutas para gestión de mesas
     $app->post('/tables', 'App\Controllers\TableController:create')->add($checkRole(['gerente', 'dueño']));
