@@ -30,4 +30,13 @@ $app->group('/api', function ($app) use ($checkRole) {
         $app->put('/{id}', 'App\Controllers\ProductController:update');
         $app->delete('/{id}', 'App\Controllers\ProductController:delete');
     })->add($checkRole(['gerente', 'dueño']));
+
+    // Administration - only owner
+    $app->group('/admin', function ($app) {
+        $app->get('/profits', 'App\Controllers\AdminController:getProfits');
+        $app->get('/users', 'App\Controllers\AdminController:getUsers');
+        $app->post('/users', 'App\Controllers\AdminController:createUser');
+        $app->put('/users/{id}', 'App\Controllers\AdminController:updateUser');
+        $app->delete('/users/{id}', 'App\Controllers\AdminController:deleteUser');
+    })->add($checkRole(['dueño']));
 })->add($authMiddleware);
